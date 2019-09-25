@@ -12,41 +12,17 @@ import java.util.Objects;
  */
 @Data
 @JsonDeserialize(using = OrderDeserialization.class)
-public class Order {
-
-  Integer fullPrice;
-
-  Integer payment;
-
-  Integer orderStatus;
-
-  Integer entry;
-
-  Long orderNo;
-
-  Long customerId;
-
-  Long addressId;
-
-  String payNo;
-
-  String payWay;
-
-  String createTime;
-
-  String updateTime;
-
-  String dispatchTime;
+public abstract class Order {
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
+  public boolean equals(Object obj) {
+    if (this == obj) {
       return true;
     }
-    if (!(o instanceof Order)) {
+    if (!(obj instanceof Order)) {
       return false;
     }
-    Order order = (Order) o;
+    Order order = (Order) obj;
     return getOrderNo().equals(order.getOrderNo());
   }
 
@@ -56,11 +32,33 @@ public class Order {
   }
 
   /**
-   * identify order type
+   * identify every order type
    *
    * @return
    */
-  protected OrderTypeEnum currentOrderTypeEnum() {
-    return OrderTypeEnum.NormalOrder;
-  }
+  protected abstract OrderTypeEnum currentOrderTypeEnum();
+
+  private Integer fullPrice;
+
+  private Integer payment;
+
+  private Integer orderStatus;
+
+  private Integer entry;
+
+  private Long orderNo;
+
+  private Long customerId;
+
+  private Long addressId;
+
+  private String payNo;
+
+  private String payWay;
+
+  private String createTime;
+
+  private String updateTime;
+
+  private String dispatchTime;
 }

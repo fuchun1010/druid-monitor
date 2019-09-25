@@ -31,7 +31,9 @@ public class OrderDeserialization extends StdDeserializer<Order> {
     Order order = null;
 
     JsonNode root = jsonParser.getCodec().readTree(jsonParser);
+
     Integer fullPrice = root.get("fullPrice").intValue();
+    Integer payment = root.get("payment").intValue();
     Integer orderStatus = root.get("orderStatus").intValue();
     Integer entry = root.get("entry").intValue();
 
@@ -45,6 +47,7 @@ public class OrderDeserialization extends StdDeserializer<Order> {
 
     boolean isGroupOrder = Objects.nonNull(root.get("capacity")) && Objects.nonNull(root.get("participants")) && root.get("participants").isArray();
     order = isGroupOrder ? new GroupOrder() : new NormalOrder();
+
     order.setFullPrice(fullPrice);
     order.setAddressId(addressId);
     order.setCustomerId(customerId);
@@ -54,7 +57,8 @@ public class OrderDeserialization extends StdDeserializer<Order> {
     order.setPayWay(payWay);
     order.setOrderStatus(orderStatus);
     order.setEntry(entry);
-
+    order.setPayment(payment);
+    
     return order;
   }
 
