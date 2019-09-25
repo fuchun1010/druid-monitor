@@ -38,5 +38,5 @@ public class GroupOrder extends Order {
 
   private Set<Long> participants = Sets.newHashSet();
 
-  private int capacity = 1;
+  private Integer capacity = 1;
 }
