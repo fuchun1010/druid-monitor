@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class PreSaleOrder extends Order {
+public class PreSaleOrderReq extends OrderReq {
   
   @Override
   public OrderTypeEnum currentOrderTypeEnum() {

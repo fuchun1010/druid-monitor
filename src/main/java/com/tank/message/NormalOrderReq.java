@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class NormalOrder extends Order {
+public class NormalOrderReq extends OrderReq {
 
 
   @Override

@@ -1,7 +1,7 @@
 package com.tank.controller;
 
 import com.google.common.collect.Maps;
-import com.tank.message.Order;
+import com.tank.message.OrderReq;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +21,7 @@ import static com.tank.constants.UrlPrefix.URL_PREFIX;
 public class OrderController {
 
   @PostMapping(value = "/createOrder")
-  public ResponseEntity<Map<String, Object>> createOrder(@RequestBody @NotNull final Order order) {
+  public ResponseEntity<Map<String, Object>> createOrder(@RequestBody @NotNull final OrderReq order) {
     Map<String, Object> body = Maps.newHashMap();
     body.putIfAbsent("type", order.currentOrderTypeEnum().desc);
     return ResponseEntity.ok(body);

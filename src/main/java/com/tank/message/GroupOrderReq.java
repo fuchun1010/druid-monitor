@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class GroupOrder extends Order {
+public class GroupOrderReq extends OrderReq {
 
   @JsonIgnore
   public boolean isEnough() {

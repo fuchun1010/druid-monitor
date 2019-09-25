@@ -12,17 +12,17 @@ import java.util.Objects;
  */
 @Data
 @JsonDeserialize(using = OrderDeserialization.class)
-public abstract class Order {
+public abstract class OrderReq {
 
   @Override
   public boolean equals(Object obj) {
     if (this == obj) {
       return true;
     }
-    if (!(obj instanceof Order)) {
+    if (!(obj instanceof OrderReq)) {
       return false;
     }
-    Order order = (Order) obj;
+    OrderReq order = (OrderReq) obj;
     return getOrderNo().equals(order.getOrderNo());
   }
 
@@ -30,6 +30,7 @@ public abstract class Order {
   public int hashCode() {
     return Objects.hash(getOrderNo());
   }
+
 
   /**
    * identify every order type
@@ -61,4 +62,7 @@ public abstract class Order {
   private String updateTime;
 
   private String dispatchTime;
+
+  private String storeCode;
+
 }
