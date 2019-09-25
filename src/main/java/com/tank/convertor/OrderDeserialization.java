@@ -12,6 +12,7 @@ import com.tank.message.OrderReq;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -62,6 +63,7 @@ public class OrderDeserialization extends StdDeserializer<OrderReq> {
     order.setOrderStatus(orderStatus);
     order.setEntry(entry);
     order.setPayment(payment);
+    order.setCreateTime(LocalDateTime.now());
 
     if (isGroupOrder) {
       int capacity = root.get("capacity").intValue();

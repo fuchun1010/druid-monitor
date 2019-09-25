@@ -16,4 +16,5 @@ public class NormalOrderReq extends OrderReq {
   public OrderTypeEnum currentOrderTypeEnum() {
     return OrderTypeEnum.NormalOrder;
   }
+  
 }

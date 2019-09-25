@@ -6,6 +6,7 @@ import com.tank.constants.OrderTypeEnum;
 import com.tank.convertor.OrderDeserialization;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -46,7 +47,11 @@ public abstract class OrderReq {
 
   private Integer orderStatus;
 
+  @Comment(desc = "订单来源")
   private Integer entry;
+
+  @Comment(desc = "配送方式")
+  private Integer dispatchWay;
 
   private Long orderNo;
 
@@ -58,10 +63,11 @@ public abstract class OrderReq {
 
   private String payWay;
 
-  private String createTime;
+  private LocalDateTime createTime;
 
   private String updateTime;
 
+  @Comment(desc = "配送时间")
   private String dispatchTime;
 
   private String storeCode;
