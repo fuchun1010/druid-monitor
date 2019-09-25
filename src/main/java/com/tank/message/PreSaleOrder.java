@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 public class PreSaleOrder extends Order {
   
   @Override
-  protected OrderTypeEnum currentOrderTypeEnum() {
+  public OrderTypeEnum currentOrderTypeEnum() {
     return OrderTypeEnum.PreSaleOrder;
   }
 }

@@ -58,7 +58,19 @@ public class OrderDeserialization extends StdDeserializer<Order> {
     order.setOrderStatus(orderStatus);
     order.setEntry(entry);
     order.setPayment(payment);
-    
+
+    if (isGroupOrder) {
+      int capacity = root.get("capacity").intValue();
+      GroupOrder groupOrder = ((GroupOrder) order);
+      groupOrder.setCapacity(capacity);
+      JsonNode arr = root.get("participants");
+      for (JsonNode node : arr) {
+        groupOrder.addParticipant(node.longValue());
+      }
+      return groupOrder;
+    }
+
+
     return order;
   }
 

@@ -36,7 +36,7 @@ public abstract class Order {
    *
    * @return
    */
-  protected abstract OrderTypeEnum currentOrderTypeEnum();
+  public abstract OrderTypeEnum currentOrderTypeEnum();
 
   private Integer fullPrice;
 

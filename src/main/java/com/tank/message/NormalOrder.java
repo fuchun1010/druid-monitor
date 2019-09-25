@@ -13,7 +13,7 @@ public class NormalOrder extends Order {
 
 
   @Override
-  protected OrderTypeEnum currentOrderTypeEnum() {
+  public OrderTypeEnum currentOrderTypeEnum() {
     return OrderTypeEnum.NormalOrder;
   }
 }

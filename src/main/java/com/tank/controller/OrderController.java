@@ -21,8 +21,9 @@ import static com.tank.constants.UrlPrefix.URL_PREFIX;
 public class OrderController {
 
   @PostMapping(value = "/createOrder")
-  public ResponseEntity<Map<String, Integer>> createOrder(@RequestBody @NotNull final Order order) {
-    Map<String, Integer> body = Maps.newHashMap();
+  public ResponseEntity<Map<String, Object>> createOrder(@RequestBody @NotNull final Order order) {
+    Map<String, Object> body = Maps.newHashMap();
+    body.putIfAbsent("type", order.currentOrderTypeEnum().desc);
     return ResponseEntity.ok(body);
   }
 }
