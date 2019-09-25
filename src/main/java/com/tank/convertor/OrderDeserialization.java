@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.tank.constants.Comment;
 import com.tank.message.GroupOrderReq;
 import com.tank.message.NormalOrderReq;
 import com.tank.message.OrderReq;
@@ -17,6 +18,7 @@ import java.util.Objects;
  * @author tank198435163.com
  */
 @Component
+@Comment(desc = "订单反序列化")
 public class OrderDeserialization extends StdDeserializer<OrderReq> {
 
   public OrderDeserialization() {

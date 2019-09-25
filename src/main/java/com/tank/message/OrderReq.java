@@ -1,6 +1,7 @@
 package com.tank.message;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.tank.constants.Comment;
 import com.tank.constants.OrderTypeEnum;
 import com.tank.convertor.OrderDeserialization;
 import lombok.Data;
@@ -31,12 +32,12 @@ public abstract class OrderReq {
     return Objects.hash(getOrderNo());
   }
 
-
   /**
    * identify every order type
    *
    * @return
    */
+  @Comment(desc = "获取当前订单类型")
   public abstract OrderTypeEnum currentOrderTypeEnum();
 
   private Integer fullPrice;

@@ -3,8 +3,8 @@ package com.tank.constants;
 /**
  * @author tank198435163.com
  */
+@Comment(desc = "订单类型描述")
 public enum OrderTypeEnum {
-
 
   GroupOrder(1, "拼团单"),
   NormalOrder(2, "常规单"),
