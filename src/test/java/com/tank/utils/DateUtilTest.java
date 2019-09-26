@@ -47,6 +47,12 @@ public class DateUtilTest {
     Assert.assertTrue(day != Empty.EMPTY_INTEGER);
   }
 
+  @Test
+  public void toDateTimeWithMillions() {
+    String dateTimeStr = this.dateUtil.toDateTimeStr(System.currentTimeMillis()).orElse(EMPTY_STR);
+    System.out.println(dateTimeStr);
+  }
+
   @Autowired
   private DateUtil dateUtil;
 }

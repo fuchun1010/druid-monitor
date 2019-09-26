@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -44,6 +46,12 @@ public class DateUtil {
     }
     LocalDateTime temp = LocalDateTime.parse(dateStr, this.dateTimeFormatter);
     return Optional.ofNullable(temp);
+  }
+
+  @Comment
+  public Optional<String> toDateTimeStr(@NotNull final Long millions) {
+    LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(millions), ZoneId.systemDefault());
+    return this.toDateTimeStr(localDateTime);
   }
 
   @Autowired
