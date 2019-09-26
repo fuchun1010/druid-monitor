@@ -6,5 +6,5 @@ package com.tank.constants;
 @Comment(desc = "url地址前缀")
 public interface UrlPrefix {
 
-  String URL_PREFIX = "/monitor/v1";
+  String URL_PREFIX = "/order-domain/v1/order/";
 }
